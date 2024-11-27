@@ -172,6 +172,27 @@
             color: red;
             font-weight: bold;
         }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+            .translation {
+                font-size: 20px;
+            }
+            .vocabulary {
+                gap: 15px;
+            }
+            .card {
+                width: 150px;
+                padding: 10px;
+            }
+            .image-container {
+                flex-direction: column;
+            }
+            .drop-area {
+                height: 120px;
+            }
+        }
         footer p {
             margin: 0;
         }
@@ -443,6 +464,51 @@
 
         // Inicializar la primera pregunta
         showNextQuestion();
+        function allowDrop(event) {
+        event.preventDefault(); // Permite que se realice el drop
+    }
+
+    function drag(event) {
+        event.dataTransfer.setData("text", event.target.id); // Guarda el id del elemento que se está arrastrando
+    }
+
+    function drop(event, category) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text"); // Obtiene el id del elemento que se ha arrastrado
+        var draggedElement = document.getElementById(data);
+
+        // Si se está arrastrando una imagen correcta
+        if ((category === 'head' && draggedElement.id === 'image-head1') ||
+            (category === 'shirt' && draggedElement.id === 'image-shirt1') ||
+            (category === 'pants' && draggedElement.id === 'image-shirt2') ||
+            (category === 'shoes' && draggedElement.id === 'image-shirt3') ||
+            (category === 'blue' && draggedElement.id === 'image-blue1') ||
+            (category === 'red' && draggedElement.id === 'image-red1') ||
+            (category === 'green' && draggedElement.id === 'image-green1')) {
+            // Muestra el mensaje de éxito
+            document.getElementById('feedback-' + category).innerHTML = '¡Correcto!';
+            document.getElementById('feedback-' + category).classList.add('correct');
+            draggedElement.setAttribute("draggable", "false"); // Desactiva el arrastre de la imagen
+            draggedElement.style.opacity = "0.5"; // Cambia la opacidad para dar un efecto visual
+        } else {
+            // Si es incorrecto
+            document.getElementById('feedback-' + category).innerHTML = '¡Incorrecto! Intenta nuevamente.';
+            document.getElementById('feedback-' + category).classList.add('incorrect');
+        }
+
+        // Añadir la imagen en el área correcta
+        event.target.appendChild(draggedElement);
+    }
+
+    function toggleAudio(audioFile, button) {
+        var audio = new Audio(audioFile);
+        audio.play();
+        // Cambia el texto del botón después de hacer clic
+        button.innerText = button.innerText === 'Listen (Escucha)' ? 'Reproduciendo...' : 'Listen (Escucha)';
+        audio.onended = function() {
+            button.innerText = 'Listen (Escucha)';
+        };
+    }
     </script>
     
 </body>
