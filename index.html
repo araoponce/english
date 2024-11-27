@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -365,25 +368,6 @@
             }
         }
 
-        let currentAudio = null;
-
-        function toggleAudio(audioSrc, button) {
-            // Si ya hay un audio reproduciéndose, lo pausamos y cambiamos el texto
-            if (currentAudio && !currentAudio.paused) {
-                currentAudio.pause();
-                button.innerText = 'Listen (Escucha)';
-            } else {
-                // Si el audio actual está pausado o no hay audio, reproducimos el nuevo
-                currentAudio = new Audio(audioSrc);
-                currentAudio.play();
-                button.innerText = 'Pause (Pausa)';
-                
-                // Cuando el audio termine, restauramos el texto del botón
-                currentAudio.onended = function() {
-                    button.innerText = 'Listen (Escucha)';
-                };
-            }
-        }
         const questions = [
             {
                 question: "How do you say 'Cabeza' in English?",
@@ -496,16 +480,25 @@
         // Añadir la imagen en el área correcta
         event.target.appendChild(draggedElement);
     }
+    let currentAudio = null;
 
-    function toggleAudio(audioFile, button) {
-        var audio = new Audio(audioFile);
-        audio.play();
-        // Cambia el texto del botón después de hacer clic
-        button.innerText = button.innerText === 'Listen (Escucha)' ? 'Reproduciendo...' : 'Listen (Escucha)';
-        audio.onended = function() {
-            button.innerText = 'Listen (Escucha)';
+function toggleAudio(audioSrc, button) {
+    // Si ya hay un audio reproduciéndose, lo pausamos y cambiamos el texto
+    if (currentAudio && !currentAudio.paused) {
+        currentAudio.pause();
+        button.innerText = 'Escuchar';
+    } else {
+        // Si el audio actual está pausado o no hay audio, reproducimos el nuevo
+        currentAudio = new Audio(audioSrc);
+        currentAudio.play();
+        button.innerText = 'Pausar';
+        
+        // Cuando el audio termine, restauramos el texto del botón
+        currentAudio.onended = function() {
+            button.innerText = 'Escuchar';
         };
     }
+}
     </script>
     
 </body>
