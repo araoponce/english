@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,15 +11,15 @@
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding-bottom: 40px; /* Para darle espacio al pie de página */
+            padding-bottom: 40px;
             background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Asegura que la página ocupe toda la altura de la ventana */
+            min-height: 100vh;
         }
         h1 {
             font-size: 32px;
-            color: #333:
+            color: #333;
             text-align: center;
         } 
         .translation {
@@ -58,6 +61,7 @@
             text-align: center;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
+            position: relative;
         }
         .card img {
             max-width: 100%;
@@ -106,144 +110,214 @@
             color: red;
             font-weight: bold;
         }
-
+        .audio-button {
+            margin-top: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .audio-button:hover {
+            background-color: #0056b3;
+        }
         footer {
-            text-align: center; /* Centra el texto */
-            font-size: 12px;     /* Hace el texto más pequeño */
-            color: #666;         /* Color gris */
-            padding: 10px 0;     /* Espacio arriba y abajo */
-            background-color: #f8f8f8; /* Fondo gris claro */
-            margin-top: auto; /* Empuja el pie de página hacia abajo */
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            padding: 10px 0;
+            background-color: #f8f8f8;
+            margin-top: auto;
             width: 100%;
         }
-
+        .question {
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        .input-area {
+            margin: 20px 0;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .feedback {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #333;
+        }
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
         footer p {
-            margin: 0; /* Elimina márgenes alrededor del párrafo */
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <h1>Aprende vocabulario: Partes del cuerpo, Ropa, Colores</h1>
     <p class="translation">Learn vocabulary: Parts of the body, Clothes, Colors</p>
+    <br>
+    <h5>¬ Listen to the Audio below the vocabulary and do not forget to repeat after</h5>
+    <h5>¬ Escucha el audio debajo del vocabulario y no olvides repetir después</h5>
     <h2>Vocabulario: Partes del Cuerpo</h2>
     <p class="translation">Vocabulary: Parts of the body</p>
-
-
-    <!-- Vocabulario: Español/Inglés -->
     <div class="vocabulary">
         <div class="card">
             <p class="spanish">Cabeza</p>
             <p class="english">Head</p>
+            <button class="audio-button" onclick="toggleAudio('head.mp3', this)">Listen (Escucha)</button>
         </div>
         <div class="card">
             <p class="spanish">Mano</p>
             <p class="english">Hand</p>
+            <button class="audio-button" onclick="toggleAudio('hand.mp3', this)">(Escucha)</button>
         </div>
         <div class="card">
             <p class="spanish">Pierna</p>
             <p class="english">Leg</p>
+            <button class="audio-button" onclick="toggleAudio('leg.mp3', this)">Listen (Escucha)</button>
         </div>
     </div>
-    
-    <!-- Espacio visible entre categorías -->
-    <div style="height: 30px;"></div>
+
     <h2>Vocabulario: Ropa</h2>
     <p class="translation">Vocabulary: Clothes</p>
     <div class="vocabulary">
         <div class="card">
             <p class="spanish">Camiseta</p>
             <p class="english">Shirt</p>
+            <button class="audio-button" onclick="toggleAudio('shirt.mp3', this)">Listen (Escucha)</button>
         </div>
         <div class="card">
             <p class="spanish">Pantalones</p>
             <p class="english">Pants</p>
+            <button class="audio-button" onclick="toggleAudio('pants.mp3', this)">Listen (Escucha)</button>
         </div>
         <div class="card">
             <p class="spanish">Zapatos</p>
             <p class="english">Shoes</p>
+            <button class="audio-button" onclick="toggleAudio('shoes.mp3', this)">Listen (Escucha)</button>
         </div>
     </div>
 
-    <!-- Espacio visible entre categorías -->
-    <div style="height: 30px;"></div>
     <h2>Vocabulario: Colores</h2>
     <p class="translation">Vocabulary: Colors</p>
     <div class="vocabulary">
         <div class="card">
             <p class="spanish">Rojo</p>
             <p class="english">Red</p>
+            <button class="audio-button" onclick="toggleAudio('red.mp3', this)">Listen (Escucha)</button>
         </div>
         <div class="card">
             <p class="spanish">Azul</p>
             <p class="english">Blue</p>
+            <button class="audio-button" onclick="toggleAudio('blue.mp3', this)">Listen (Escucha)</button>
         </div>
         <div class="card">
             <p class="spanish">Verde</p>
             <p class="english">Green</p>
+            <button class="audio-button" onclick="toggleAudio('green.mp3', this)">Listen (Escucha)</button>
         </div>
     </div>
-
-    <!-- Sección de Juego: Cuerpo -->
-    <div class="section">
-        <h2>Juego: Empareja la Imagen con la Palabra - Partes del Cuerpo</h2>
-        <div class="vocabulary">
-            <h3>Partes del Cuerpo: Empareja la imagen de la "Cabeza"</h3>
-            <div class="image-container">
-                <img class="draggable-image" src="https://img.freepik.com/vector-gratis/cara-sonriente-hombre-dibujos-animados_1308-174451.jpg?t=st=1732629370~exp=1732632970~hmac=ed3785be596363cd3735268eb49def7e3a11005911344031c82da4532acd17a1&w=740" alt="Head" id="image-head1" draggable="true" ondragstart="drag(event)">
-                <img class="draggable-image" src="https://img.freepik.com/free-photo/hand-man-counting-five_1368-8436.jpg?t=st=1731855014~exp=1731858614~hmac=3cd4b0f9cc30f54b4739c5cd9912c211aa0490c81f7be2ccaebdb91b77bd05c3&w=740" alt="Hand" id="image-head2" draggable="true" ondragstart="drag(event)">
-                <img class="draggable-image" src="https://i.pinimg.com/736x/68/7d/30/687d30dccea8c3f51f85ea0093dd90ea.jpg" alt="Leg" id="image-head3" draggable="true" ondragstart="drag(event)">
-            </div>
-            <div class="drop-area" id="drop-head" ondrop="drop(event, 'head')" ondragover="allowDrop(event)">
-                <p>Deja la imagen de la "Cabeza" aquí</p>
-            </div>
-            <div id="feedback-head" class="feedback"></div>
+ <!-- Sección de Juego: Cuerpo -->
+ <div class="section">
+    <h2>Juego: Empareja la Imagen con la Palabra - Partes del Cuerpo</h2>
+    <br>
+    <h2>Game: Match the Picture with the Word - Body Parts</h2>
+    <div class="vocabulary">
+        <h3>Body Parts: Match the image of the "Head</h3>
+        <div class="image-container">
+            <img class="draggable-image" src="https://img.freepik.com/vector-gratis/cara-sonriente-hombre-dibujos-animados_1308-174451.jpg?t=st=1732629370~exp=1732632970~hmac=ed3785be596363cd3735268eb49def7e3a11005911344031c82da4532acd17a1&w=740" alt="Head" id="image-head1" draggable="true" ondragstart="drag(event)">
+            <img class="draggable-image" src="https://img.freepik.com/free-photo/hand-man-counting-five_1368-8436.jpg?t=st=1731855014~exp=1731858614~hmac=3cd4b0f9cc30f54b4739c5cd9912c211aa0490c81f7be2ccaebdb91b77bd05c3&w=740" alt="Hand" id="image-head2" draggable="true" ondragstart="drag(event)">
+            <img class="draggable-image" src="https://i.pinimg.com/736x/68/7d/30/687d30dccea8c3f51f85ea0093dd90ea.jpg" alt="Leg" id="image-head3" draggable="true" ondragstart="drag(event)">
         </div>
+        <div class="drop-area" id="drop-head" ondrop="drop(event, 'head')" ondragover="allowDrop(event)">
+            <p>Leave the image of the "Head" here</p>
+        </div>
+        <div id="feedback-head" class="feedback"></div>
+    </div>
+</div>
+
+<!-- Sección de Juego: Ropa -->
+<div class="section">
+    <h2>Juego: Empareja la Imagen con la Palabra - Ropa</h2>
+    <br>
+    <h2>Game: Match the Picture with the Word - Clothes</h2>
+    <div class="vocabulary">
+        <h3>Clothing: Match the image of the "T-shirt"</h3> 
+        <div class="image-container">
+            <img class="draggable-image" src="https://media.istockphoto.com/id/1267481579/pl/wektor/hawajska-koszula-z-kwiatami-hibiskusa-izolowana-ilustracja-wektorowa.jpg?s=1024x1024&w=is&k=20&c=BuGVhZIPLX-5REaua0UfroB-bC0eLbhNW44ShHKVRls=" alt="Shirt" id="image-shirt1" draggable="true" ondragstart="drag(event)">
+            <img class="draggable-image" src="https://easydrawingguides.com/wp-content/uploads/2019/03/how-to-draw-a-jeans-featured-image-1200.png" alt="Pants" id="image-shirt2" draggable="true" ondragstart="drag(event)">
+            <img class="draggable-image" src="https://howtodrawforkids.com/wp-content/uploads/2022/11/9-shoes-from-the-front-drawing-cartoon.jpg" alt="Shoes" id="image-shirt3" draggable="true" ondragstart="drag(event)">
+        </div>
+        <div class="drop-area" id="drop-shirt" ondrop="drop(event, 'shirt')" ondragover="allowDrop(event)">
+            <p>Leave the image of the "T-shirt" here</p>
+        </div>
+        <div id="feedback-shirt" class="feedback"></div>
+    </div>
+</div>
+
+<!-- Sección de Juego: Colores -->
+<div class="section">
+    <h2>Juego: Empareja la Imagen con la Palabra - Colores</h2>
+    <br>
+    <h2>Juego: Match the Image with the Word - Colors</h2>
+    <div class="vocabulary">
+        <h3>Colors: Match the image of the color "Red"</h3>
+        <div class="image-container">
+            <div class="draggable-image" style="background-color: red; width: 100px; height: 100px;" id="image-red1" draggable="true" ondragstart="drag(event)">
+            </div>
+            <div class="draggable-image" style="background-color: blue; width: 100px; height: 100px;" id="image-blue1" draggable="true" ondragstart="drag(event)">
+            </div>
+            <div class="draggable-image" style="background-color: green; width: 100px; height: 100px;" id="image-green1" draggable="true" ondragstart="drag(event)">
+            </div>
+        </div>
+        <div class="drop-area" id="drop-red" ondrop="drop(event, 'red')" ondragover="allowDrop(event)">
+            <p>Leave the image of "Red" here</p> <br>
+        </div>
+        <div id="feedback-red" class="feedback"></div>
+    </div>
+</div>
+
+<h1>Game: Writing</h1>
+    <p class="question" id="question-text">¿Cómo se dice "Mano" en inglés?</p>
+
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Escribe tu respuesta aquí...">
+        <button onclick="checkAnswer()">Verificar Respuesta</button>
     </div>
 
-    <!-- Sección de Juego: Ropa -->
-    <div class="section">
-        <h2>Juego: Empareja la Imagen con la Palabra - Ropa</h2>
-        <div class="vocabulary">
-            <h3>Ropa: Empareja la imagen de la "Camiseta"</h3>
-            <div class="image-container">
-                <img class="draggable-image" src="https://media.istockphoto.com/id/1267481579/pl/wektor/hawajska-koszula-z-kwiatami-hibiskusa-izolowana-ilustracja-wektorowa.jpg?s=1024x1024&w=is&k=20&c=BuGVhZIPLX-5REaua0UfroB-bC0eLbhNW44ShHKVRls=" alt="Shirt" id="image-shirt1" draggable="true" ondragstart="drag(event)">
-                <img class="draggable-image" src="https://easydrawingguides.com/wp-content/uploads/2019/03/how-to-draw-a-jeans-featured-image-1200.png" alt="Pants" id="image-shirt2" draggable="true" ondragstart="drag(event)">
-                <img class="draggable-image" src="https://howtodrawforkids.com/wp-content/uploads/2022/11/9-shoes-from-the-front-drawing-cartoon.jpg" alt="Shoes" id="image-shirt3" draggable="true" ondragstart="drag(event)">
-            </div>
-            <div class="drop-area" id="drop-shirt" ondrop="drop(event, 'shirt')" ondragover="allowDrop(event)">
-                <p>Deja la imagen de la "Camiseta" aquí</p>
-            </div>
-            <div id="feedback-shirt" class="feedback"></div>
-        </div>
-    </div>
+    <div class="feedback" id="feedback"></div>
 
-    <!-- Sección de Juego: Colores -->
-    <div class="section">
-        <h2>Juego: Empareja la Imagen con la Palabra - Colores</h2>
-        <div class="vocabulary">
-            <h3>Colores: Empareja la imagen del color "Rojo"</h3>
-            <div class="image-container">
-                <div class="draggable-image" style="background-color: red; width: 100px; height: 100px;" id="image-red1" draggable="true" ondragstart="drag(event)">
-                </div>
-                <div class="draggable-image" style="background-color: blue; width: 100px; height: 100px;" id="image-blue1" draggable="true" ondragstart="drag(event)">
-                </div>
-                <div class="draggable-image" style="background-color: green; width: 100px; height: 100px;" id="image-green1" draggable="true" ondragstart="drag(event)">
-                </div>
-            </div>
-            <div class="drop-area" id="drop-red" ondrop="drop(event, 'red')" ondragover="allowDrop(event)">
-                <p>Deja la imagen de "Rojo" aquí</p>
-            </div>
-            <div id="feedback-red" class="feedback"></div>
-        </div>
-    </div>
-
-    <!-- Pie de Página -->
     <footer>
         <p>&copy; 2024 Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        function allowDrop(ev) {
+                function allowDrop(ev) {
             ev.preventDefault();
         }
 
@@ -272,6 +346,104 @@
                 document.getElementById(`feedback-${category}`).classList.add("incorrect");
             }
         }
+
+        let currentAudio = null;
+
+        function toggleAudio(audioSrc, button) {
+            // Si ya hay un audio reproduciéndose, lo pausamos y cambiamos el texto
+            if (currentAudio && !currentAudio.paused) {
+                currentAudio.pause();
+                button.innerText = 'Listen (Escucha)';
+            } else {
+                // Si el audio actual está pausado o no hay audio, reproducimos el nuevo
+                currentAudio = new Audio(audioSrc);
+                currentAudio.play();
+                button.innerText = 'Pause (Pausa)';
+                
+                // Cuando el audio termine, restauramos el texto del botón
+                currentAudio.onended = function() {
+                    button.innerText = 'Listen (Escucha)';
+                };
+            }
+        }
+        const questions = [
+            {
+                question: "How do you say 'Cabeza' in English?",
+                answer: "Head"
+            },
+            {
+                question: "How do you say 'Mano' in English?",
+                answer: "Hand"
+            },
+            {
+                question: "How do you say 'Pierna' in English?",
+                answer: "Leg"
+            },
+            {
+                question: "How do you say 'Camiseta' in English?",
+                answer: "Shirt"
+            },
+            {
+                question: "How do you say 'Pantalones' in English?",
+                answer: "Pants"
+            },
+            {
+                question: "How do you say 'Zapatos' in Engllish?",
+                answer: "Shoes"
+            },
+            {
+                question: "How do you say 'Rojo' in English?",
+                answer: "Red"
+            },
+            {
+                question: "How do you say 'Azul' in English?",
+                answer: "Blue"
+            },
+            {
+                question: "How do you say 'Verde' in English?",
+                answer: "Green"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+
+        // Función para mostrar una nueva pregunta
+        function showNextQuestion() {
+            const question = questions[currentQuestionIndex];
+            document.getElementById("question-text").textContent = question.question;
+            document.getElementById("user-input").value = "";
+            document.getElementById("feedback").textContent = "";
+        }
+
+        // Función para verificar la respuesta
+        function checkAnswer() {
+            const userAnswer = document.getElementById("user-input").value.trim().toLowerCase();
+            const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                document.getElementById("feedback").textContent = "¡Correcto!";
+                document.getElementById("feedback").className = "feedback correct";
+            } else {
+                document.getElementById("feedback").textContent = "¡Incorrecto! La respuesta correcta es: " + questions[currentQuestionIndex].answer;
+                document.getElementById("feedback").className = "feedback incorrect";
+            }
+
+            // Mostrar la siguiente pregunta después de 2 segundos
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    showNextQuestion();
+                } else {
+                    document.getElementById("question-text").textContent = "¡Felicidades! Has terminado el juego.";
+                    document.getElementById("user-input").disabled = true;
+                    document.querySelector("button").disabled = true;
+                }
+            }, 2000);
+        }
+
+        // Inicializar la primera pregunta
+        showNextQuestion();
     </script>
+    
 </body>
 </html>
