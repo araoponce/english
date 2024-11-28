@@ -212,7 +212,7 @@
         <div class="card">
             <p class="spanish">Mano</p>
             <p class="english">Hand</p>
-            <button class="audio-button" onclick="toggleAudio('hand.mp3', this)">(Escucha)</button>
+            <button class="audio-button" onclick="toggleAudio('hand.mp3', this)">Listen (Escucha)</button>
         </div>
         <div class="card">
             <p class="spanish">Pierna</p>
@@ -483,16 +483,16 @@ function toggleAudio(audioSrc, button) {
     // Si ya hay un audio reproduciéndose, lo pausamos y cambiamos el texto
     if (currentAudio && !currentAudio.paused) {
         currentAudio.pause();
-        button.innerText = 'Escuchar';
+        button.innerText = Listen';
     } else {
         // Si el audio actual está pausado o no hay audio, reproducimos el nuevo
         currentAudio = new Audio(audioSrc);
         currentAudio.play();
-        button.innerText = 'Pausar';
+        button.innerText = 'Pause';
         
         // Cuando el audio termine, restauramos el texto del botón
         currentAudio.onended = function() {
-            button.innerText = 'Escuchar';
+            button.innerText = 'Listen';
         };
     }
 }
