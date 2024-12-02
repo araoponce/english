@@ -488,7 +488,7 @@ function toggleAudio(audioSrc, button) {
         // Si el audio actual está pausado o no hay audio, reproducimos el nuevo
         currentAudio = new Audio(audioSrc);
         currentAudio.play();
-        button.innerText = 'Listen (Escucha)';
+        button.innerText = 'Pause (Pausa)';
         
         // Cuando el audio termine, restauramos el texto del botón
         currentAudio.onended = function() {
